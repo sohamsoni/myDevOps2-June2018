@@ -7,7 +7,7 @@
       ping: 
 
 - name: This play will demonstrate use of ping module to ubuntu containers
-  hosts: ubuntu
+  hosts: all
   tasks: 
     - name: This will ping remote node of ubuntu
       ping: 
