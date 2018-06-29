@@ -1,12 +1,12 @@
 ---
 
-- name: This play will demonstrate use of ping module to ubuntu containers
+- name: This play will demonstrate use of ping module to localhost
   hosts: localhost
   tasks: 
     - name: This will ping remote node of ubuntu
       ping: 
 
-- name: This play will demonstrate use of ping module to ubuntu containers
+- name: This play will demonstrate use of ping module to all
   hosts: all
   tasks: 
     - name: This will ping remote node of ubuntu
