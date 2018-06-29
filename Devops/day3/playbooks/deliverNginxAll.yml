@@ -1,0 +1,24 @@
+- name: Installs, configures, and deploys web page in nginx web server
+  hosts: all
+  vars_files:
+   - custom_variables
+
+  tasks:
+   - include: install_nginx.yml
+   - include: configure_nginx.yml
+   - include: configure_webroot.yml
+   - include: deploy_homepage.yml
+  
+  handlers:
+   - include: restart.yml
+
+- name: Installs, configures, and deploys web page in nginx web server
+  hosts: ubuntu-ssl
+  vars_files:
+   - custom_variables
+   
+  tasks:
+   - include: configure_ssl.yml
+
+  handlers:
+   - include: restart.yml

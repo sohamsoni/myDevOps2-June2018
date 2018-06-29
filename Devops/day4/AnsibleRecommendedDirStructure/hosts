@@ -1,0 +1,17 @@
+[all]
+ubuntu1-1
+ubuntu1-2
+ubuntu2-1
+centos[1:2]
+localhost
+
+[ubuntu]
+ubuntu1-1
+ubuntu1-2
+ubuntu2-1
+
+[centos]
+centos[1:2]
+
+[localOne]
+localhost

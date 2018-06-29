@@ -1,0 +1,31 @@
+- name: Demonstrates the use of ansible docker Modules
+  hosts: localhost
+  become: yes
+  tasks:
+   - name: This will install Docker-py packages on local-host
+     command: apt install -y --allow-unauthenticated python-pip
+
+   - name: This installs docker-py
+     command: pip install docker-py
+
+   - name: start Ubuntu container - Create new if doesn't exist.
+     docker: 
+        name: "ubuntu1-{{item}}"
+        image: bac-soham/ansible-ubuntu
+        hostname: "ubuntu1-{{item}}"
+        state: started
+        ports:
+         - "200{{item}}:22"
+         - "800{{item}}:80"
+     with_sequence: start=5 end=7
+
+   - name: start CentOS container - Create new if doesn't exist.
+     docker: 
+        name: "centos{{item}}"
+        image: bac-soham/ansible-centos
+        hostname: "centos{{item}}"
+        state: started
+        ports:
+         - "200{{item}}:22"
+         - "800{{item}}:80"
+     with_sequence: start=8 end=10

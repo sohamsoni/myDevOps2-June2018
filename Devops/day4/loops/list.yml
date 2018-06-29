@@ -1,0 +1,14 @@
+- name: Demo of list file with loop. It is user defined list
+  hosts: ubuntu
+  vars:
+   - package_list:
+      - vim
+      - tree
+      - ruby
+      - postfix
+      - maven
+  tasks:
+   - name: Install packages from the list of packages.
+     debug: msg="Need to install {{item}} utility."
+     with_list: "{{package_list}}"
+    

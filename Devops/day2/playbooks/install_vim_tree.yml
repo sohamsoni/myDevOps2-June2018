@@ -1,0 +1,18 @@
+---
+
+- name: This first play will install vim and tree on containerNodes
+  hosts: container3
+  tasks:
+    - name: This will install vim editor
+      apt: name=vim state=latest update_cache=yes
+
+    - name: This will install tree utility
+      apt: name=tree state=latest update_cache=yes
+
+- name: This is is second play for the fun
+  hosts: dev_server
+  tasks: 
+    - name: This will be second play task
+      debug: msg="Second play, first task"
+
+...    

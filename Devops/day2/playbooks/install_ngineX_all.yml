@@ -1,0 +1,24 @@
+- name: Installs, configures, and deploys web page in nginx web server
+  hosts: dev_server
+  vars:
+   - greeting_msg: DevOps
+   - automation_tool: Ansible
+   - provisioner_tool: Docker
+  tasks:
+#   - name: Install nginx web sever
+#     apt: name=nginx state=latest update_cache=yes
+
+   - name: Configure nginx Web server
+     copy: src=default dest=/etc/nginx/sites-available/default
+
+   - name: Restart nginx web server
+     service: name=nginx state=restarted
+
+   - name: Create root web directory folder
+     file: path=/var/html state=directory mode=0777
+
+   - name: deploy our custom htlm page in nginx web server
+     template: src=index.html.j2 dest=/var/html/index.html
+
+   - name: Restart nginx web server
+     service: name=nginx state=restarted

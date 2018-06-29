@@ -1,0 +1,5 @@
+- name: Configure nginx Web server on ubuntu  containers with ssl
+  copy: src=default.ssl dest=/etc/nginx/sites-available/default backup=yes
+  when: ( ansible_distribution == "Ubuntu" and ansible_os_family == "Debian" )
+  notify:
+   - Restart nginx web server

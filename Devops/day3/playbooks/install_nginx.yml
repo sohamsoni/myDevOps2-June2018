@@ -1,0 +1,15 @@
+- name: Install nginx web sever
+  apt: name=nginx state=latest update_cache=yes
+  when: ( ansible_distribution == "Ubuntu" and ansible_os_family == "Debian" )
+  notify: 
+   - Restart nginx web server
+ 
+- name: Install epel-release packages on CentOs Boxes
+  yum: name=epel-release state=latest
+  when: ( ansible_distribution == "CentOS" and ansible_os_family == "RedHat" )
+
+- name: Install nginx on CentOs Boxes
+  yum: name=nginx state=latest 
+  when: ( ansible_distribution == "CentOS" and ansible_os_family == "RedHat" )
+  notify: 
+   - Restart nginx web server

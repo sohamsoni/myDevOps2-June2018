@@ -1,0 +1,16 @@
+- name: Demo of dictionay variable and iterations/navigation
+  hosts: centos
+  vars:
+   - contacts:
+       Sriram:
+         name: Srirarm A
+         number: 123-456-7890
+
+       Soham:
+         Name: Soham Soni
+         number: 961-918-1609
+  
+  tasks:
+   - name: Print all Contacts and their names
+     debug: msg="Mobile number of {{item.key}} is {{item.value.number}}."
+     with_dict: "{{contacts}}"

@@ -1,0 +1,4 @@
+ansible_user: seed
+ansible_password: seed123
+ansible_become_user: root
+ansible_become_password: seed123

@@ -1,0 +1,2 @@
+- name: deploy our custom htlm page in nginx web server
+  template: src=index.html.j2 dest=/var/html/index.html

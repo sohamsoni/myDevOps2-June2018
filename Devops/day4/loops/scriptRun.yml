@@ -1,0 +1,12 @@
+- name: Test of scripts
+  hosts: centos
+#  vars:
+#   - package_list:
+#      - vim
+#      - tree
+#      - ruby
+#      - postfix
+#      - maven
+  tasks:
+   - name: Run the script to test shell command
+     shell: /scp/test.sh
