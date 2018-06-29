@@ -2,10 +2,10 @@
   hosts: localhost
   become: yes
   tasks:
-   - name: This will install Docker-py packages on local-host
+   - name: This will install python-p packages on localhost
      command: apt install -y --allow-unauthenticated python-pip
 
-   - name: This installs docker-py
+   - name: This installs docker-py on localhost
      command: pip install docker-py
 
    - name: start Ubuntu container - Create new if doesn't exist.
